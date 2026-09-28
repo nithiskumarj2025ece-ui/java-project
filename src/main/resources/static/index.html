@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GarageDesk | Vehicle Service Management</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">GD</div>
+        <div><strong>GarageDesk</strong><span>Service Management</span></div>
+      </div>
+
+      <nav>
+        <button class="nav-item active" data-section="dashboard">Dashboard</button>
+        <button class="nav-item" data-section="jobs">Job Cards</button>
+        <button class="nav-item" data-section="vehicles">Vehicles</button>
+        <button class="nav-item" data-section="bays">Service Bays</button>
+        <button class="nav-item" data-section="mechanics">Mechanics</button>
+        <button class="nav-item" data-section="bills">Bills</button>
+      </nav>
+
+      <div class="sidebar-note">
+        <div class="dot"></div>
+        <div>
+          <b>Backend</b>
+          <small id="connectionText">Checking connection...</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p>Keep every vehicle, bay and job in one place.</p>
+        </div>
+        <button class="primary" id="quickJobBtn">+ New Job Card</button>
+      </header>
+
+      <div id="alertBox" class="alert hidden"></div>
+
+      <section id="dashboard" class="section active">
+        <div class="stats">
+          <div class="stat-card"><span>Total Jobs</span><strong id="statJobs">0</strong></div>
+          <div class="stat-card"><span>Waiting</span><strong id="statWaiting">0</strong></div>
+          <div class="stat-card"><span>In Progress</span><strong id="statProgress">0</strong></div>
+          <div class="stat-card"><span>Completed</span><strong id="statCompleted">0</strong></div>
+        </div>
+
+        <div class="grid two">
+          <div class="panel">
+            <div class="panel-head"><h2>Current Job Queue</h2><button class="link-btn" data-go="jobs">View all</button></div>
+            <div id="dashboardJobs" class="table-wrap"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h2>Bay Status</h2><button class="link-btn" data-go="bays">Manage</button></div>
+            <div id="dashboardBays" class="bay-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="jobs" class="section">
+        <div class="toolbar">
+          <input id="jobSearch" type="search" placeholder="Search job card, vehicle or registration...">
+          <button class="primary" id="newJobBtn">+ Create Job Card</button>
+        </div>
+        <div class="panel">
+          <div id="jobsTable" class="table-wrap"></div>
+        </div>
+      </section>
+
+      <section id="vehicles" class="section">
+        <div class="toolbar">
+          <input id="vehicleSearch" type="search" placeholder="Search registration or owner...">
+          <button class="primary" id="newVehicleBtn">+ Add Vehicle</button>
+        </div>
+        <div class="panel"><div id="vehiclesTable" class="table-wrap"></div></div>
+      </section>
+
+      <section id="bays" class="section">
+        <div class="toolbar"><button class="primary" id="newBayBtn">+ Add Bay</button></div>
+        <div id="baysGrid" class="bay-grid large"></div>
+      </section>
+
+      <section id="mechanics" class="section">
+        <div class="toolbar"><button class="primary" id="newMechanicBtn">+ Add Mechanic</button></div>
+        <div id="mechanicsGrid" class="cards-grid"></div>
+      </section>
+
+      <section id="bills" class="section">
+        <div class="panel"><div id="billsTable" class="table-wrap"></div></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2 id="modalTitle">Create</h2>
+        <button class="close" id="closeModal">&times;</button>
+      </div>
+      <form id="modalForm"></form>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

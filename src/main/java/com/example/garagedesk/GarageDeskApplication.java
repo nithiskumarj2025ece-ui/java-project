@@ -1,0 +1,12 @@
+package com.example.garagedesk;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class GarageDeskApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(GarageDeskApplication.class, args);
+    }
+}
